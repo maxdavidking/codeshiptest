@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "BJPnN8FEtT2K0oIBx+6oV6VzlyCcxGNwWs4Vl+it3Zok60Fqn/vE48nWiflPQsmfpZj9JmIkpIG3jqER4Qno9DNuaHE2bu23LHFrJqYGPluAn5XsHoROBbb/DobftpnWDHiOGzEl7Aw+xS7pHEBt2+F3CsvFv27/nrpRFANfvdpVVSxpPtk0oxJy3VYah19lSwo3/eCfWyrOfD5hXkmz9Dg58zCXp4AzWnpFT7UNgn0JZlxtfzVdj2QW7kVXyPGEsoWjEwlJR4vEIzlucH8IZqVlyvxVZWAcNMIu9ApGeCE3oaK+DmgQO7au2UhVP2KddXk9hji87deRQJXG2BcZUuKY/AyZyQ8X2on5eFAS3gn3PkZUBaZuyPT3te3UyUgGAD0ehJXMTvAon2FECWXnqz/b3NK/DiflWOYg7swdzK7z2Czgn0RjehYBPzl0tJKAZ1lMahNlLwUnjiHdBs0wIkpOrAAJFliD3MYKtsgblSOWDADQb1fs5KyDMaalb1Ax5sVEgjCK+hbuWHmkuxbyHEpGo5BOBz1dQVPRyLOlHaYRF/pr6QDSVG+UkarpIN1O56b0XqSsxCfXakcidaaXw8z1Pndqyp+jbTLmTU04aw9cM1thJJsDUokByG2WWciaJ+5x8hb+B/ighBouzZdAJPr8qr5On2Nz9+6+4stUu8o="
+  app: max-test-codeship
+  on:
+    repo: maxdavidking/codeshiptest
